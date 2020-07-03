@@ -1,0 +1,33 @@
+body {
+    /* width: ; */
+    margin: auto;
+    text-align: center;
+    background-color: rgb(174, 215, 253);
+}
+
+#navbar {
+    padding: 15px 0;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 15px;
+    margin: auto;
+}
+
+th {
+    background-color: #4287f5;
+    color: white;
+}
+
+th,td {
+    width: 350px;
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

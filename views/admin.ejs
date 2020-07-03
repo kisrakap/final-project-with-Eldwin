@@ -1,0 +1,19 @@
+<%- include('partials/header', {title: "List of Admin"}) %>
+
+    <table>
+        <tr>
+          <th>Id</th>
+          <th>Username</th>
+          <th>Password</th>
+        </tr>
+
+        <% for (let i = 0; i < data.length; i++) { %>
+        <tr>
+            <td><%= data[i].id %></td>
+            <td><%= data[i].username.toUpperCase() %></td>
+            <td><%= data[i].password %></td>
+          </tr>
+        <% } %>
+      </table> 
+    
+<%- include('partials/footer'); %>

@@ -1,0 +1,15 @@
+<%- include('partials/header', {title: "Edit Form Company"}) %>
+
+    <% if(error) { %>
+        <p><%= error %></p>
+    <% } %>
+    
+    <form action="/companies/<%= data.id %>/edit" method="POST">
+        <label>Name</label><br>
+        <input type="text" name="name" value="<%= data.name %>"><br><br>
+        <label>Store</label><br>
+        <input type="text" name="store" value="<%= data.store %>"><br><br>
+        <input type="submit" value="Edit Company">
+    </form>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,25 @@
+<%- include('partials/header', {title: "List of Company List"}) %>
+
+    <button><a href="/companies/add">Add Company</a></button><br>
+
+    <% if(error) { %>
+      <p><%= error %></p>
+    <% } %>
+
+    <table>
+        <tr>
+          <th>Company Name</th>
+          <th>Store</th>
+          <th>Action</th>
+        </tr>
+
+        <% for (let i = 0; i < data.length; i++) { %>
+        <tr>
+          <td><%= data[i].name.toUpperCase() %></td>
+          <td><%= data[i].store.toUpperCase() %></td>
+          <td><a href="/companies/<%= data[i].id %>/edit">Edit</a> | <a href="/companies/<%= data[i].id %>/delete" onclick="return confirm('Delete Product?')">Delete</a> | <a href="/productcompanies/<%= data[i].id %>/add">Add Product</a></td>
+        </tr>
+        <% } %>
+      </table> 
+    
+<%- include('partials/footer'); %>

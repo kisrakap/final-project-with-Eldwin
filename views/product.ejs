@@ -1,0 +1,27 @@
+<%- include('partials/header', {title: "List of Product"}) %>
+
+    <button><a href="/products/add">Add Product</a></button><br>
+
+    <% if(error) { %>
+      <p><%= error %></p>
+    <% } %>
+
+    <table>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Stock</th>
+          <th>Action</th>
+        </tr>
+
+        <% for (let i = 0; i < data.length; i++) { %>
+        <tr>
+          <td><%= data[i].fullname() %></td>
+          <td>Rp <%= priceSeparator(data[i].price) %></td>
+          <td><%= data[i].stock %></td>
+          <td><a href="/products/<%= data[i].id %>/edit">Edit</a> | <a href="/products/<%= data[i].id %>/delete" onclick="return confirm('Delete Product?')">Delete</a></td>
+        </tr>
+        <% } %>
+      </table> 
+    
+<%- include('partials/footer'); %>

@@ -1,0 +1,47 @@
+<%- include('partials/header', {title: "Add Product for Brand"}); %>
+
+    <% if(errors) { %>
+        <p style="color: red; margin-bottom: 5px;"><%= errors %></p>
+    <% } %>
+    
+    <div class="row">
+        <div class="col-6 mt-4">
+            <h1><%= data.name.toUpperCase() %></h1>
+        </div>
+        <div class="col-6 mt-2">
+            <form action="/productcompanies/<%= data.id %>/add" method="POST">
+                <label>Product</label><br>
+                <select name="productId">
+                    <% for(let i = 0; i < allProduct.length; i++) { %>
+                        <option value="<%= allProduct[i].id %>"><%= allProduct[i].name %></option>
+                        <% } %>
+                </select> <br><br>
+                <input type="submit" value="Add Product">
+            </form>
+        </div>
+    </div>
+
+    <h1>List Product</h1>
+      <table >
+          <tr>
+              <th style="width: 50%">Product Name</th>
+              <th>Price</th>
+              <th>Stock</th>
+          </tr>
+    
+          <% for(let i = 0; i < data.ProductCompanies.length; i++) { %>
+            <tr>
+              <% for(let j = 0; j < allProduct.length; j++) { 
+                if(data.ProductCompanies[i].productId === allProduct[j].id) { %>
+                  <td><%= allProduct[j].fullname() %></td>
+                  <td>Rp <%= priceSeparator(allProduct[j].price) %></td>
+                  <td><%= allProduct[j].stock %></td>
+                <% } 
+              } %> 
+            </tr>
+          <% } %>
+
+      </table>
+    
+<%- include('partials/footer'); %>
+

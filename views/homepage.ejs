@@ -1,0 +1,20 @@
+<%- include('partials/header', {title: "LIST OF PRODUCT"}) %>
+
+    <table>
+        <tr>
+            <th type='hidden'></th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+        <% for (let i = 0; i < data.length; i++){ %>
+        <tr>
+            <th><i onclick="myfunction(this)" class="fa fa-thumbs-up"></i></th>
+            <td><%= data[i].name %></td>
+            <td>Rp <%= priceSeparator(data[i].price) %></td>
+            <td><a href="/productcompanies/<%= data[i].id %>/detail">Know More</a></td>
+        </tr>
+        <% } %>
+    </table>
+    
+<%- include('partials/footer');%>

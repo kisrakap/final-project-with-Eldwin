@@ -1,0 +1,25 @@
+<%- include('partials/header', {title: "Edit Form Product"}) %>
+
+    <% if(error) { %>
+        <p><%= error %></p>
+    <% } %>
+    
+    <form action="/products/<%= data.id %>/edit" method="POST">
+        <label>Name</label><br>
+        <input type="text" name="name" value="<%= data.name %>"><br><br>
+        <label>Price</label><br>
+        <input type="text" name="price" value="<%= data.price %>"><br><br>
+        <label>Stock</label><br>
+        <input type="text" name="stock" value="<%= data.stock %>"><br><br>
+        <label>Type</label><br>
+        <select name="type">
+            <option value="Laptop" <% if (data.type.toLowerCase() === "laptop") {%> selected <%} %> required>Laptop</option>
+            <option value="Handphone" <% if (data.type.toLowerCase() === "handphone") {%> selected <%} %> required>Handphone</option>
+            <option value="Clothes" <% if (data.type.toLowerCase() === "clothes") {%> selected <%} %> required>Clothes</option>
+            <option value="Electronic" <% if (data.type.toLowerCase() === "electronic") {%> selected <%} %> required>Electronic</option>
+            <option value="Pants" <% if (data.type.toLowerCase() === "pants") {%> selected <%} %> required>Pants</option>
+        </select> <br><br>
+        <input type="submit" value="Edit Product">
+    </form>
+
+<%- include('partials/footer') %>

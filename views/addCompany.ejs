@@ -1,0 +1,15 @@
+<%- include('partials/header', {title: "Add Form Company"}) %>
+
+    <% if(error) { %>
+        <p><%= error %></p>
+    <% } %>
+    
+    <form action="/companies/add" method="POST">
+        <label>Name</label><br>
+        <input type="text" name="name"><br><br>
+        <label>Store</label><br>
+        <input type="text" name="store"><br><br>
+        <input type="submit" value="Add Company">
+    </form>
+
+<%- include('partials/footer') %>
